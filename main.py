@@ -1646,6 +1646,14 @@ async def process_appxwp(bot: Client, m: Message, user_id: int):
                 await session.close()
             await CONNECTOR.close()
 
+from flask import Flask
+import os
 
+app = Flask(__name__)
+
+PORT = int(os.environ.get("PORT", 5000))
+
+# Bind to 0.0.0.0
+app.run(host="0.0.0.0", port=PORT)
                                         
 bot.run()
